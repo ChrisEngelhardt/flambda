@@ -17,7 +17,7 @@ def home():
 def handler(lmbd):
     #my_class = getattr(lambdas[lmbd], lmbd)
     j = json.loads(request.get_data())
-    return json.dumps(lambdas[lmbd].run(j))
+    return json.dumps(lambdas[lmbd].main(j))
 
 def register_routes():
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))

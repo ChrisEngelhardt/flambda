@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <h1>Available lambda routes</h1>
+        <h1>Lambda routes</h1>
         <table>
             <tr>
                 <th>Name</th>
-                <th>URI</th>
+                <th>API Endpoint</th>
             </tr>
             {% for link in data %}
             <tr>
-                <td>{{link}}</td>
-                <td><a href="lambda/{{link}}"> https://{{url}}/lambda/{{link}} </a></td>
+                <td style="text-align:left">{{link}}</td>
+                <td style="padding-left:40px; text-align:left"><a href="lambda/{{link}}"> http://{{url}}/lambda/{{link}} </a></td>
             </tr>       
         {% endfor %}
     </table>
