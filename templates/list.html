@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>Available lambda routes</h1>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>URI</th>
+            </tr>
+            {% for link in data %}
+            <tr>
+                <td>{{link}}</td>
+                <td><a href="lambda/{{link}}"> https://{{url}}/lambda/{{link}} </a></td>
+            </tr>       
+        {% endfor %}
+    </table>
+    </body>
+</html>
