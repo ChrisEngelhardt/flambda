@@ -1,4 +1,8 @@
 # Flambda
+Place your code into the lambda functions folder. Run the container.
+All functions will be callable as REST API. Function input and output will be of type json.
+For convenience, if you open the hosted [Flambda container](https://127.0.0.1:5000) from your browser you can see your created endpoints.
+
 
 # Lambda Functions
 Lambda functions must be placed in the lambda folder and must have a `main(j)` method that returns json serializable object. The paramter j is the json deserialized object given from the http body. Each function must be placed into its own folder and the python code file must me named like the folder. 
