@@ -24,7 +24,7 @@ def main():
   }
 ```
 
-If you don't need further dependencies, you can simply run `docker run -P -v ${PWD}/lambdas:/app/lambdas chrisengelhardt/flambda`. 
+If you don't need further dependencies, you can simply run `docker run -p 5000:5000 -v ${PWD}/lambdas:/app/lambdas chrisengelhardt/flambda`. 
 
 Otherwise you need to create a own container that inherits from `chrisengelhardt/flambda`.
 For this create a requirements.txt and place all needed dependencies in it.
@@ -43,5 +43,5 @@ CMD [ "python", "main.py" ]
  and build with `docker build -t YOURIMAGENAME .`
 
 ## Remarks:
-- *Option 1: If you build your own container you can also bundle your lambda functions into the container and thus can simply run `docker run -P  YOURIMAGENAME`. This makes the docker code much more straight forward to start. However if you chance the lambda functions the code will not be able to hot reload as with the mounted volume `docker run -P -v ${PWD}/lambdas:/app/lambdas YOURIMAGENAME`. 
+- *Option 1: If you build your own container you can also bundle your lambda functions into the container and thus can simply run `docker run -p 5000:5000  YOURIMAGENAME`. This makes the docker code much more straight forward to start. However if you chance the lambda functions the code will not be able to hot reload as with the mounted volume `docker run -p 5000:5000 -v ${PWD}/lambdas:/app/lambdas YOURIMAGENAME`. 
 
