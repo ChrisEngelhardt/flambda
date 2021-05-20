@@ -34,8 +34,8 @@ Example Dockerfile to build a container with own dependencies
 ```
 FROM chrisengelhardt/flambda
 
-# COPY requirements.txt /app/requirements.txt #*Option 1
-COPY lambdas /app/lambdas
+COPY requirements.txt /app/requirements.txt 
+# COPY lambdas /app/lambdas # *1
 RUN pip3 install --no-cache-dir -r /app/requirements.txt
 WORKDIR /app/
 CMD [ "python", "main.py" ]
@@ -43,5 +43,5 @@ CMD [ "python", "main.py" ]
  and build with `docker build -t YOURIMAGENAME .`
 
 ## Remarks:
-- *Option 1: If you build your own container you can also bundle your lambda functions into the container and thus can simply run `docker run -p 5000:5000  YOURIMAGENAME`. This makes the docker code much more straight forward to start. However if you chance the lambda functions the code will not be able to hot reload as with the mounted volume `docker run -p 5000:5000 -v ${PWD}/lambdas:/app/lambdas YOURIMAGENAME`. 
+- *1: If you build your own container you can also bundle your lambda functions into the container and thus can simply run `docker run -p 5000:5000  YOURIMAGENAME`. This makes the docker code much more straight forward to start. However if you chance the lambda functions the code will not be able to hot reload as with the mounted volume `docker run -p 5000:5000 -v ${PWD}/lambdas:/app/lambdas YOURIMAGENAME`. 
 
