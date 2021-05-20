@@ -1,4 +1,5 @@
 FROM python:3.7
+EXPOSE 5000
 
 RUN pip3 install Flask glob2
 COPY ./requirements.txt /app/requirements.txt
